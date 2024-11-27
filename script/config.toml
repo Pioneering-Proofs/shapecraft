@@ -1,0 +1,4 @@
+[profile.shape]
+chainId = 360
+OTOMTokenAddress = "0x2f9810789aebBB6cdC6c0332948fF3B6D11121E3"
+OTOMEncoderAddress = "0x624c7801C48046B4477aEbE2F128F09d4263288C"

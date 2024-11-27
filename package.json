@@ -1,0 +1,22 @@
+{
+  "name": "shapecraft",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Shapecraft hackathon project",
+  "main": "index.js",
+  "repository": "git@github.com:Pioneering-Proofs/shapecraft.git",
+  "author": "Kai Aldag <kaialdag@icloud.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "mint": "npx tsx script/mint.ts"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.3",
+    "@types/node": "^22.10.0",
+    "ethers": "5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
