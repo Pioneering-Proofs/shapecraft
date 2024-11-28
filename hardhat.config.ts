@@ -71,6 +71,12 @@ const config: HardhatUserConfig = {
     otomEnergy: {
       shape: "0x42276dF82BAb34c3CCcA9e5c058b6ff7EA4d07e3"
     },
+    otomReactor: {
+      shape: "0xB8874fCE9b702B191C306A21c7A4a101FB14a0fc"
+    },
+    otomReactionOutput: {
+      shape: "0x7d5A370F277e1847E4f768a88758237c6E3456eD"
+    }
   },
 };
 

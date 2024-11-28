@@ -1,0 +1,483 @@
+{
+  "json": {
+    "args": [
+      [
+        {
+          "universeHash": "0xfda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+          "reactionOutputId": "12695",
+          "remainingEnergy": "949999999999999956",
+          "inputAtomIds": [
+            "102778440634494800034222665730320253970535620183521519769203972072981002600659",
+            "41531482708453860552959019439525500162618454987803772582079372108437618663362"
+          ],
+          "outputMolecules": [
+            {
+              "molecule": {
+                "id": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26Af8-",
+                "universeHash": "0xfda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                "name": "Af",
+                "givingAtoms": [
+                  {
+                    "name": "Af",
+                    "series": "alkaline",
+                    "structure": {
+                      "universeHash": "0xfda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                      "depth": "1000000000000000000",
+                      "distance": "672524977684952341",
+                      "distanceIndex": "4000000000000000000",
+                      "shell": "1000000000000000000",
+                      "totalInOuter": [
+                        "0",
+                        "2000000000000000000",
+                        "2000000000000000000",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                      ],
+                      "emptyInOuter": [
+                        "0",
+                        "1000000000000000000",
+                        "2000000000000000000",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                      ],
+                      "filledInOuter": [
+                        "0",
+                        "1000000000000000000",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                      ],
+                      "ancestors": ["4000000000000000000", "0"]
+                    },
+                    "nucleus": {
+                      "protons": "4000000000000000000",
+                      "neutrons": "4000000000000000000",
+                      "nucleons": "8000000000000000000",
+                      "stability": "1000000000000000000",
+                      "decayType": "stable"
+                    },
+                    "radius": "1028561648650107685",
+                    "volume": "1088155548943689599",
+                    "mass": "8000000000000000000",
+                    "density": "7351890093071600241",
+                    "electronegativity": "125000000000000000",
+                    "metallic": true,
+                    "periodicTableX": "2000000000000000000",
+                    "periodicTableY": "1000000000000000000"
+                  }
+                ],
+                "receivingAtoms": [],
+                "bond": { "strength": "0", "bondType": "singleton" },
+                "activationEnergy": "0",
+                "radius": "0",
+                "electricalConductivity": "0",
+                "thermalConductivity": "918986261633950030",
+                "toughness": "1000000000000000000",
+                "hardness": "0",
+                "ductility": "0"
+              },
+              "tokenUri": "data:application/json;base64,eyJuYW1lIjoiQWYgT3RvbSIsImltYWdlIjoiaHR0cHM6Ly9wcm9kLW90b21zLnMzLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tL290b21zL2ZkYTAwODUwMzI4OGU1YWJjMzcwMzI4MTUwZDIwOTkzZmVjMjZlZmU1NzA3ZjJkMTJhYjU1MmViYjBkYTVlMjZBZjgtLXRva2VuLnBuZyIsImNoaXBJbWFnZSI6Imh0dHBzOi8vcHJvZC1vdG9tcy5zMy51cy1lYXN0LTEuYW1hem9uYXdzLmNvbS9vdG9tcy9mZGEwMDg1MDMyODhlNWFiYzM3MDMyODE1MGQyMDk5M2ZlYzI2ZWZlNTcwN2YyZDEyYWI1NTJlYmIwZGE1ZTI2QWY4LS1jaGlwLnBuZyIsImF0dHJpYnV0ZXMiOlt7InRyYWl0X3R5cGUiOiJOYW1lIiwidmFsdWUiOiJBZiJ9LHsidHJhaXRfdHlwZSI6IlNlcmllcyIsInZhbHVlIjoiYWxrYWxpbmUifSx7InRyYWl0X3R5cGUiOiJQcm90b25zIiwidmFsdWUiOjR9LHsidHJhaXRfdHlwZSI6Ik5ldXRyb25zIiwidmFsdWUiOjR9LHsidHJhaXRfdHlwZSI6Ik1hc3MiLCJ2YWx1ZSI6OH0seyJ0cmFpdF90eXBlIjoiU3RhYmlsaXR5IiwidmFsdWUiOjF9LHsidHJhaXRfdHlwZSI6IkRlbnNpdHkiLCJ2YWx1ZSI6Ny4zNTE4OTAwOTMwNzE2fSx7InRyYWl0X3R5cGUiOiJSYWRpdXMiLCJ2YWx1ZSI6MS4wMjg1NjE2NDg2NTAxMDc3fSx7InRyYWl0X3R5cGUiOiJFbGVjdHJvbmVnYXRpdml0eSIsInZhbHVlIjowLjEyNX0seyJ0cmFpdF90eXBlIjoiTWV0YWxsaWMiLCJ2YWx1ZSI6dHJ1ZX0seyJ0cmFpdF90eXBlIjoiRGVjYXkgVHlwZSIsInZhbHVlIjoic3RhYmxlIn0seyJ0cmFpdF90eXBlIjoiRmlsbGVkIFZhbGVuY2UiLCJ2YWx1ZSI6IjAtMS0wLTAtMC0wLTAtMCJ9LHsidHJhaXRfdHlwZSI6IkVtcHR5IFZhbGVuY2UiLCJ2YWx1ZSI6IjAtMS0yLTAtMC0wLTAtMCJ9XX0="
+            },
+            {
+              "molecule": {
+                "id": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26Cq6-",
+                "universeHash": "0xfda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                "name": "Cq",
+                "givingAtoms": [
+                  {
+                    "name": "Cq",
+                    "series": "noble",
+                    "structure": {
+                      "universeHash": "0xfda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                      "depth": "1000000000000000000",
+                      "distance": "514071132778190054",
+                      "distanceIndex": "3000000000000000000",
+                      "shell": "0",
+                      "totalInOuter": [
+                        "0",
+                        "3000000000000000000",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                      ],
+                      "emptyInOuter": ["0", "0", "0", "0", "0", "0", "0", "0"],
+                      "filledInOuter": [
+                        "0",
+                        "3000000000000000000",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                      ],
+                      "ancestors": ["3000000000000000000", "0"]
+                    },
+                    "nucleus": {
+                      "protons": "3000000000000000000",
+                      "neutrons": "3000000000000000000",
+                      "nucleons": "6000000000000000000",
+                      "stability": "1000000000000000000",
+                      "decayType": "stable"
+                    },
+                    "radius": "679875187297915629",
+                    "volume": "314258891597273826",
+                    "mass": "6000000000000000000",
+                    "density": "19092538542040887961",
+                    "electronegativity": "0",
+                    "metallic": false,
+                    "periodicTableX": "1000000000000000000",
+                    "periodicTableY": "8000000000000000000"
+                  }
+                ],
+                "receivingAtoms": [],
+                "bond": { "strength": "0", "bondType": "singleton" },
+                "activationEnergy": "0",
+                "radius": "0",
+                "electricalConductivity": "0",
+                "thermalConductivity": "9546269271020443981",
+                "toughness": "333333333333333315",
+                "hardness": "0",
+                "ductility": "0"
+              },
+              "tokenUri": "data:application/json;base64,eyJuYW1lIjoiQ3EgT3RvbSIsImltYWdlIjoiaHR0cHM6Ly9wcm9kLW90b21zLnMzLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tL290b21zL2ZkYTAwODUwMzI4OGU1YWJjMzcwMzI4MTUwZDIwOTkzZmVjMjZlZmU1NzA3ZjJkMTJhYjU1MmViYjBkYTVlMjZDcTYtLXRva2VuLnBuZyIsImNoaXBJbWFnZSI6Imh0dHBzOi8vcHJvZC1vdG9tcy5zMy51cy1lYXN0LTEuYW1hem9uYXdzLmNvbS9vdG9tcy9mZGEwMDg1MDMyODhlNWFiYzM3MDMyODE1MGQyMDk5M2ZlYzI2ZWZlNTcwN2YyZDEyYWI1NTJlYmIwZGE1ZTI2Q3E2LS1jaGlwLnBuZyIsImF0dHJpYnV0ZXMiOlt7InRyYWl0X3R5cGUiOiJOYW1lIiwidmFsdWUiOiJDcSJ9LHsidHJhaXRfdHlwZSI6IlNlcmllcyIsInZhbHVlIjoibm9ibGUifSx7InRyYWl0X3R5cGUiOiJQcm90b25zIiwidmFsdWUiOjN9LHsidHJhaXRfdHlwZSI6Ik5ldXRyb25zIiwidmFsdWUiOjN9LHsidHJhaXRfdHlwZSI6Ik1hc3MiLCJ2YWx1ZSI6Nn0seyJ0cmFpdF90eXBlIjoiU3RhYmlsaXR5IiwidmFsdWUiOjF9LHsidHJhaXRfdHlwZSI6IkRlbnNpdHkiLCJ2YWx1ZSI6MTkuMDkyNTM4NTQyMDQwODg4fSx7InRyYWl0X3R5cGUiOiJSYWRpdXMiLCJ2YWx1ZSI6MC42Nzk4NzUxODcyOTc5MTU2fSx7InRyYWl0X3R5cGUiOiJFbGVjdHJvbmVnYXRpdml0eSIsInZhbHVlIjowfSx7InRyYWl0X3R5cGUiOiJNZXRhbGxpYyIsInZhbHVlIjpmYWxzZX0seyJ0cmFpdF90eXBlIjoiRGVjYXkgVHlwZSIsInZhbHVlIjoic3RhYmxlIn0seyJ0cmFpdF90eXBlIjoiRmlsbGVkIFZhbGVuY2UiLCJ2YWx1ZSI6IjAtMy0wLTAtMC0wLTAtMCJ9LHsidHJhaXRfdHlwZSI6IkVtcHR5IFZhbGVuY2UiLCJ2YWx1ZSI6IjAtMC0wLTAtMC0wLTAtMCJ9XX0="
+            },
+            {
+              "molecule": {
+                "id": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26M20-",
+                "universeHash": "0xfda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                "name": "M",
+                "givingAtoms": [
+                  {
+                    "name": "M",
+                    "series": "metal",
+                    "structure": {
+                      "universeHash": "0xfda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                      "depth": "2000000000000000000",
+                      "distance": "1245668220357038170",
+                      "distanceIndex": "10000000000000000000",
+                      "shell": "2000000000000000000",
+                      "totalInOuter": [
+                        "0",
+                        "0",
+                        "3000000000000000000",
+                        "2000000000000000000",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                      ],
+                      "emptyInOuter": [
+                        "0",
+                        "0",
+                        "1000000000000000000",
+                        "1000000000000000000",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                      ],
+                      "filledInOuter": [
+                        "0",
+                        "0",
+                        "2000000000000000000",
+                        "1000000000000000000",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                      ],
+                      "ancestors": [
+                        "10000000000000000000",
+                        "1000000000000000000",
+                        "0"
+                      ]
+                    },
+                    "nucleus": {
+                      "protons": "10000000000000000000",
+                      "neutrons": "10000000000000000000",
+                      "nucleons": "20000000000000000000",
+                      "stability": "1940381166488632125",
+                      "decayType": "stable"
+                    },
+                    "radius": "979115541531134337",
+                    "volume": "938645997431964196",
+                    "mass": "20000000000000000000",
+                    "density": "21307287363625771803",
+                    "electronegativity": "476190476190476164",
+                    "metallic": true,
+                    "periodicTableX": "3000000000000000000",
+                    "periodicTableY": "3000000000000000000"
+                  }
+                ],
+                "receivingAtoms": [],
+                "bond": { "strength": "0", "bondType": "singleton" },
+                "activationEnergy": "0",
+                "radius": "0",
+                "electricalConductivity": "0",
+                "thermalConductivity": "7457550577269020486",
+                "toughness": "666666666666666630",
+                "hardness": "0",
+                "ductility": "0"
+              },
+              "tokenUri": "data:application/json;base64,eyJuYW1lIjoiTSBPdG9tIiwiaW1hZ2UiOiJodHRwczovL3Byb2Qtb3RvbXMuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vb3RvbXMvZmRhMDA4NTAzMjg4ZTVhYmMzNzAzMjgxNTBkMjA5OTNmZWMyNmVmZTU3MDdmMmQxMmFiNTUyZWJiMGRhNWUyNk0yMC0tdG9rZW4ucG5nIiwiY2hpcEltYWdlIjoiaHR0cHM6Ly9wcm9kLW90b21zLnMzLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tL290b21zL2ZkYTAwODUwMzI4OGU1YWJjMzcwMzI4MTUwZDIwOTkzZmVjMjZlZmU1NzA3ZjJkMTJhYjU1MmViYjBkYTVlMjZNMjAtLWNoaXAucG5nIiwiYXR0cmlidXRlcyI6W3sidHJhaXRfdHlwZSI6Ik5hbWUiLCJ2YWx1ZSI6Ik0ifSx7InRyYWl0X3R5cGUiOiJTZXJpZXMiLCJ2YWx1ZSI6Im1ldGFsIn0seyJ0cmFpdF90eXBlIjoiUHJvdG9ucyIsInZhbHVlIjoxMH0seyJ0cmFpdF90eXBlIjoiTmV1dHJvbnMiLCJ2YWx1ZSI6MTB9LHsidHJhaXRfdHlwZSI6Ik1hc3MiLCJ2YWx1ZSI6MjB9LHsidHJhaXRfdHlwZSI6IlN0YWJpbGl0eSIsInZhbHVlIjoxLjk0MDM4MTE2NjQ4ODYzMjF9LHsidHJhaXRfdHlwZSI6IkRlbnNpdHkiLCJ2YWx1ZSI6MjEuMzA3Mjg3MzYzNjI1NzcyfSx7InRyYWl0X3R5cGUiOiJSYWRpdXMiLCJ2YWx1ZSI6MC45NzkxMTU1NDE1MzExMzQzfSx7InRyYWl0X3R5cGUiOiJFbGVjdHJvbmVnYXRpdml0eSIsInZhbHVlIjowLjQ3NjE5MDQ3NjE5MDQ3NjE2fSx7InRyYWl0X3R5cGUiOiJNZXRhbGxpYyIsInZhbHVlIjp0cnVlfSx7InRyYWl0X3R5cGUiOiJEZWNheSBUeXBlIiwidmFsdWUiOiJzdGFibGUifSx7InRyYWl0X3R5cGUiOiJGaWxsZWQgVmFsZW5jZSIsInZhbHVlIjoiMC0wLTItMS0wLTAtMC0wIn0seyJ0cmFpdF90eXBlIjoiRW1wdHkgVmFsZW5jZSIsInZhbHVlIjoiMC0wLTEtMS0wLTAtMC0wIn1dfQ=="
+            }
+          ],
+          "reactionTypes": ["decay"],
+          "success": true
+        }
+      ],
+      "1732845264",
+      "0x73c2f5bde8ba3a3b7d6c36c614767696721b87a95716aae858e5aff607a9760e41bc8c60c69f8efa3088a111665538fda5f8541302c9dc49aa89d58e5b5e9b4b1b"
+    ],
+    "summaries": [
+      {
+        "inputs": [
+          {
+            "identifier": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26M20-",
+            "name": "M",
+            "giving_atoms": [
+              {
+                "name": "M",
+                "series": "metal",
+                "structure": {
+                  "universe_seed": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                  "depth": 2,
+                  "distance": 1.2456682203570382,
+                  "distance_index": 10,
+                  "shell": 2,
+                  "total_in_outer": [0, 0, 3, 2, 0, 0, 0, 0],
+                  "empty_in_outer": [0, 0, 1, 1, 0, 0, 0, 0],
+                  "filled_in_outer": [0, 0, 2, 1, 0, 0, 0, 0],
+                  "ancestors": [10, 1, 0]
+                },
+                "nucleus": {
+                  "protons": 10,
+                  "neutrons": 10,
+                  "nucleons": 20,
+                  "stability": 1.9403811664886321,
+                  "decay_type": "stable"
+                },
+                "radius": 0.9791155415311343,
+                "volume": 0.9386459974319642,
+                "mass": 20,
+                "density": 21.307287363625772,
+                "electronegativity": 0.47619047619047616,
+                "metallic": true,
+                "pt_pos": [3, 3]
+              }
+            ],
+            "receiving_atoms": [],
+            "bond": { "strength": 0, "type": "singleton" },
+            "activation_energy": 0,
+            "radius": 0,
+            "electrical_conductivity": 0,
+            "thermal_conductivity": 7.4575505772690205,
+            "toughness": 0.6666666666666666,
+            "hardness": 0,
+            "ductility": 0,
+            "image": "https://prod-otoms.s3.us-east-1.amazonaws.com/otoms/fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26M20--chip.png"
+          },
+          {
+            "identifier": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26Zz14-",
+            "name": "Zz",
+            "giving_atoms": [
+              {
+                "name": "Zz",
+                "series": "noble",
+                "structure": {
+                  "universe_seed": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                  "depth": 2,
+                  "distance": 1.012332813697867,
+                  "distance_index": 7,
+                  "shell": 1,
+                  "total_in_outer": [0, 2, 2, 0, 0, 0, 0, 0],
+                  "empty_in_outer": [0, 0, 0, 0, 0, 0, 0, 0],
+                  "filled_in_outer": [0, 2, 2, 0, 0, 0, 0, 0],
+                  "ancestors": [7, 4, 0]
+                },
+                "nucleus": {
+                  "protons": 7,
+                  "neutrons": 7,
+                  "nucleons": 14,
+                  "stability": 0.6408626756740485,
+                  "decay_type": "alpha"
+                },
+                "radius": 0.7945154024735968,
+                "volume": 0.5015416017122334,
+                "mass": 14,
+                "density": 27.913935657988944,
+                "electronegativity": 0,
+                "metallic": false,
+                "pt_pos": [2, 8]
+              }
+            ],
+            "receiving_atoms": [],
+            "bond": { "strength": 0, "type": "singleton" },
+            "activation_energy": 0,
+            "radius": 0,
+            "electrical_conductivity": 0,
+            "thermal_conductivity": 11.963115281995261,
+            "toughness": 0.5,
+            "hardness": 0,
+            "ductility": 0,
+            "image": "https://prod-otoms.s3.us-east-1.amazonaws.com/otoms/fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26Zz14--chip.png"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "Af",
+            "identifier": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26Af8-",
+            "giving_atoms": [
+              {
+                "name": "Af",
+                "series": "alkaline",
+                "structure": {
+                  "universe_seed": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                  "depth": 1,
+                  "distance": 0.6725249776849523,
+                  "distance_index": 4,
+                  "shell": 1,
+                  "total_in_outer": [0, 2, 2, 0, 0, 0, 0, 0],
+                  "empty_in_outer": [0, 1, 2, 0, 0, 0, 0, 0],
+                  "filled_in_outer": [0, 1, 0, 0, 0, 0, 0, 0],
+                  "ancestors": [4, 0]
+                },
+                "nucleus": {
+                  "protons": 4,
+                  "neutrons": 4,
+                  "nucleons": 8,
+                  "stability": 1,
+                  "decay_type": "stable"
+                },
+                "radius": 1.0285616486501077,
+                "volume": 1.0881555489436896,
+                "mass": 8,
+                "density": 7.3518900930716,
+                "electronegativity": 0.125,
+                "metallic": true,
+                "pt_pos": [2, 1]
+              }
+            ],
+            "receiving_atoms": [],
+            "bond": { "strength": 0, "type": "singleton" },
+            "radius": 1.0285616486501077,
+            "activation_energy": 7.7778517315897036,
+            "electrical_conductivity": 0,
+            "toughness": 1,
+            "hardness": 0,
+            "thermal_conductivity": 0.91898626163395,
+            "ductility": 0,
+            "image": "https://prod-otoms.s3.us-east-1.amazonaws.com/otoms/fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26Af8--chip.png"
+          },
+          {
+            "name": "Cq",
+            "identifier": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26Cq6-",
+            "giving_atoms": [
+              {
+                "name": "Cq",
+                "series": "noble",
+                "structure": {
+                  "universe_seed": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                  "depth": 1,
+                  "distance": 0.51407113277819,
+                  "distance_index": 3,
+                  "shell": 0,
+                  "total_in_outer": [0, 3, 0, 0, 0, 0, 0, 0],
+                  "empty_in_outer": [0, 0, 0, 0, 0, 0, 0, 0],
+                  "filled_in_outer": [0, 3, 0, 0, 0, 0, 0, 0],
+                  "ancestors": [3, 0]
+                },
+                "nucleus": {
+                  "protons": 3,
+                  "neutrons": 3,
+                  "nucleons": 6,
+                  "stability": 1,
+                  "decay_type": "stable"
+                },
+                "radius": 0.6798751872979156,
+                "volume": 0.3142588915972738,
+                "mass": 6,
+                "density": 19.092538542040888,
+                "electronegativity": 0,
+                "metallic": false,
+                "pt_pos": [1, 8]
+              }
+            ],
+            "receiving_atoms": [],
+            "bond": { "strength": 0, "type": "singleton" },
+            "radius": 0.6798751872979156,
+            "activation_energy": 8.82514925106518,
+            "electrical_conductivity": 0,
+            "toughness": 0.3333333333333333,
+            "hardness": 0,
+            "thermal_conductivity": 9.546269271020444,
+            "ductility": 0,
+            "image": "https://prod-otoms.s3.us-east-1.amazonaws.com/otoms/fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26Cq6--chip.png"
+          },
+          {
+            "identifier": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26M20-",
+            "name": "M",
+            "giving_atoms": [
+              {
+                "name": "M",
+                "series": "metal",
+                "structure": {
+                  "universe_seed": "fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26",
+                  "depth": 2,
+                  "distance": 1.2456682203570382,
+                  "distance_index": 10,
+                  "shell": 2,
+                  "total_in_outer": [0, 0, 3, 2, 0, 0, 0, 0],
+                  "empty_in_outer": [0, 0, 1, 1, 0, 0, 0, 0],
+                  "filled_in_outer": [0, 0, 2, 1, 0, 0, 0, 0],
+                  "ancestors": [10, 1, 0]
+                },
+                "nucleus": {
+                  "protons": 10,
+                  "neutrons": 10,
+                  "nucleons": 20,
+                  "stability": 1.9403811664886321,
+                  "decay_type": "stable"
+                },
+                "radius": 0.9791155415311343,
+                "volume": 0.9386459974319642,
+                "mass": 20,
+                "density": 21.307287363625772,
+                "electronegativity": 0.47619047619047616,
+                "metallic": true,
+                "pt_pos": [3, 3]
+              }
+            ],
+            "receiving_atoms": [],
+            "bond": { "strength": 0, "type": "singleton" },
+            "activation_energy": 0,
+            "radius": 0,
+            "electrical_conductivity": 0,
+            "thermal_conductivity": 7.4575505772690205,
+            "toughness": 0.6666666666666666,
+            "hardness": 0,
+            "ductility": 0,
+            "image": "https://prod-otoms.s3.us-east-1.amazonaws.com/otoms/fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26M20--chip.png"
+          }
+        ],
+        "energy": "1.00",
+        "success": true,
+        "reactionTypes": ["decay"],
+        "remainingEnergy": "0.95"
+      }
+    ]
+  }
+}
