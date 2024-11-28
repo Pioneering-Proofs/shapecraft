@@ -3,8 +3,11 @@ import "@nomicfoundation/hardhat-ethers";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-ignition";
 import "@nomicfoundation/hardhat-ignition-ethers";
+import "@typechain/hardhat";
 import "hardhat-deploy";
+import "@nomicfoundation/hardhat-foundry";
 import { HttpNetworkAccountsUserConfig, NetworkUserConfig } from "hardhat/types";
+import "tsconfig-paths/register";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -80,6 +83,18 @@ const config: HardhatUserConfig = {
     otomReactionOutput: {
       shape: "0x7d5A370F277e1847E4f768a88758237c6E3456eD"
     }
+  },
+  paths: {
+    artifacts: "./artifacts",
+    cache: "./cache_hardhat",
+    deploy: "./deploy",
+    deployments: "./deployments",
+    sources: "./src",
+    tests: "./test/hardhat",
+  },
+  typechain: {
+    outDir: "types",
+    target: "ethers-v6",
   },
 };
 
