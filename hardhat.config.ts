@@ -62,6 +62,9 @@ const config: HardhatUserConfig = {
     otomToken: {
       shape: "0x2f9810789aebBB6cdC6c0332948fF3B6D11121E3"
     },
+    otomDatabase: { // V2 impl: 0xf150b5263b3b6C6c04b30cAD45F56138b7c6c91D
+      shape: "0x953761a771d6Ad9F888e41b3E7c9338a32b1A346"
+    },
     otomEncoder: {
       shape: "0x624c7801C48046B4477aEbE2F128F09d4263288C"
     },
