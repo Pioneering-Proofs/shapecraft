@@ -1,31 +1,11 @@
 import { ethers, getNamedAccounts } from "hardhat";
 import { Reactor__factory, OtomsDatabaseV2__factory } from "@/types";
-
-interface OtomTokenMetadata {
-  name: string;
-  image: string;
-  chipImage: string;
-  attributes: {
-    trait_type: string;
-    value: string | number | boolean;
-  }[];
-}
+import { parseTokenURI } from "@/utils";
 
 const computeTokenId = (name: string): bigint => {
     const encoded = ethers.AbiCoder.defaultAbiCoder().encode(["string"], [name])
     const hashedTokenName = ethers.keccak256(encoded);
     return BigInt(hashedTokenName);
-};
-
-const parseTokenURI = (uri: string): OtomTokenMetadata | null => {
-  try {
-    const split = uri.split(",");
-    const lastChunk = split[split.length - 1];
-    const data = atob(lastChunk);
-    return JSON.parse(data) as OtomTokenMetadata;
-  } catch (e) {
-    return null;
-  }
 };
 
 const reactionType = "nuclear";

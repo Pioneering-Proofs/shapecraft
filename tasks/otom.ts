@@ -1,4 +1,5 @@
 import { task } from "hardhat/config";
+import { parseTokenURI } from "@/utils";
 
 task("otom:mint", "Mint OTOM NFTs")
   .addOptionalParam("amount", "The amount of NFTs to mint", "5")
@@ -271,4 +272,15 @@ task("otom:analyze", "Analyze OTOM reaction")
     );
     console.log("Analysis transaction hash:", tx.hash);
     await tx.wait();
+  });
+
+task("otom:fetch", "Fetch OTOM metadata")
+  .addPositionalParam("id", "Token ID to fetch")
+  .setAction(async ({ id }, { ethers, getNamedAccounts }) => {
+    const { otomDatabase } = await getNamedAccounts();
+    const signers = await ethers.getSigners();
+    const contract = new ethers.Contract(otomDatabase, ["function tokenURI(uint256 tokenId) returns (string)"], signers[0]);
+    const uri = await contract.tokenURI(id);
+    const otom = parseTokenURI(uri);
+    console.log(otom);
   });
