@@ -3,6 +3,7 @@ import "@nomicfoundation/hardhat-ethers";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-ignition";
 import "@nomicfoundation/hardhat-ignition-ethers";
+import "hardhat-deploy";
 import { HttpNetworkAccountsUserConfig, NetworkUserConfig } from "hardhat/types";
 import dotenv from "dotenv";
 
@@ -53,8 +54,23 @@ function getAllNetworkConfigs(): Record<string, NetworkUserConfig> {
 
 const config: HardhatUserConfig = {
   solidity: "0.8.26",
+  defaultNetwork: "shape",
   networks: {
     ...getAllNetworkConfigs(),
+  },
+  namedAccounts: {
+    otomToken: {
+      shape: "0x2f9810789aebBB6cdC6c0332948fF3B6D11121E3"
+    },
+    otomEncoder: {
+      shape: "0x624c7801C48046B4477aEbE2F128F09d4263288C"
+    },
+    otomAnnihilator: {
+      shape: "0xca3088aedaAB138cAB3F0c135ceD77aF1a8b9063"
+    },
+    otomEnergy: {
+      shape: "0x42276dF82BAb34c3CCcA9e5c058b6ff7EA4d07e3"
+    },
   },
 };
 
