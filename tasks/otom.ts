@@ -120,25 +120,59 @@ task("otom:react", "React OTOMs with Energy")
   .addVariadicPositionalParam("ids", "The IDs of the OTOMs to react")
   .addParam("energy", "The amount of energy to react with")
   .addFlag("noAnalyze", "Skip the analysis step")
-  .setAction(async ({ ids, energy, from }, { ethers, getNamedAccounts }) => {
-    const sender = from
-      ? await ethers.getSigner(from)
-      : (await ethers.getSigners())[0];
+  .setAction(
+    async (
+      { ids, energy, from, noAnalyze },
+      { ethers, getNamedAccounts, run }
+    ) => {
+      const sender = from
+        ? await ethers.getSigner(from)
+        : (await ethers.getSigners())[0];
 
-    const abi = [
-      "function initiateReaction(uint256[] atomIds, uint256 energyAmount)",
-    ];
-    const { otomReactor } = await getNamedAccounts();
-    const contract = new ethers.Contract(otomReactor, abi, sender);
+      const otomReactorABI = [
+        "function initiateReaction(uint256[] atomIds, uint256 energyAmount)",
+      ];
+      const OtomReactionOutputABI = [
+        "event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)",
+      ];
+      const { otomReactor, otomReactionOutput } = await getNamedAccounts();
+      const reactorContract = new ethers.Contract(
+        otomReactor,
+        otomReactorABI,
+        sender
+      );
+      const outputContract = new ethers.Contract(
+        otomReactionOutput,
+        OtomReactionOutputABI,
+        sender
+      );
 
-    // Send transaction
-    const tx = await contract.initiateReaction(
-      ids.map((id) => ethers.toBigInt(id)),
-      ethers.parseEther(energy)
-    );
-    console.log("Transaction hash:", tx.hash);
-    await tx.wait();
-  });
+      // Send transaction
+      const tx = await reactorContract.initiateReaction(
+        ids,
+        ethers.parseEther(energy)
+      );
+      console.log("Reaction transaction hash:", tx.hash);
+      const receipt = await tx.wait();
+      let reactionId: bigint | undefined;
+      receipt.logs.forEach((log) => {
+        try {
+          const parsed = outputContract.interface.parseLog(log);
+          if (parsed !== null && parsed?.args?.tokenId) {
+            reactionId = parsed.args.tokenId;
+          }
+        } catch (e) {
+            // Note: The above sometimes blows up on parsing. Likely due to conflicting topic0, should filter by log address
+            // TODO: Fix the above parsing to include address. Bigger fish to fry right now.
+        }
+      });
+      console.log(`Reaction confirmed. Minted reaction: ${reactionId}`);
+
+      if (!noAnalyze && reactionId) {
+        await run("otom:analyze", { ids: [reactionId.toString()] });
+      }
+    }
+  );
 
 task("otom:analyze", "Analyze OTOM reaction")
   .addVariadicPositionalParam("ids", "unrealized reaction ids")
@@ -171,18 +205,18 @@ task("otom:analyze", "Analyze OTOM reaction")
         input.json.args[0].map((reaction: any) => [
           reaction.universeHash,
           reaction.reactionOutputId,
-          reaction.outputMolecules.map((moleculeWithUri: any) => [
+          reaction.outputMolecules.map((molecule: any) => [
             [
-              moleculeWithUri.molecule.id,
-              moleculeWithUri.molecule.name,
-              moleculeWithUri.molecule.universeHash,
-              moleculeWithUri.molecule.activationEnergy,
-              moleculeWithUri.molecule.radius,
+              molecule.molecule.id,
+              molecule.molecule.name,
+              molecule.molecule.universeHash,
+              molecule.molecule.activationEnergy,
+              molecule.molecule.radius,
               [
-                moleculeWithUri.molecule.bond.strength,
-                moleculeWithUri.molecule.bond.bondType,
+                molecule.molecule.bond.strength,
+                molecule.molecule.bond.bondType,
               ],
-              moleculeWithUri.molecule.givingAtoms.map((atom: any) => [
+              molecule.molecule.givingAtoms.map((atom: any) => [
                 atom.radius,
                 atom.volume,
                 atom.mass,
@@ -212,43 +246,14 @@ task("otom:analyze", "Analyze OTOM reaction")
                   atom.nucleus.decayType,
                 ],
               ]),
-              moleculeWithUri.molecule.receivingAtoms.map((atom: any) => [
-                atom.radius,
-                atom.volume,
-                atom.mass,
-                atom.density,
-                atom.electronegativity,
-                atom.metallic,
-                atom.name,
-                atom.series,
-                atom.periodicTableX,
-                atom.periodicTableY,
-                [
-                  atom.structure.universeHash,
-                  atom.structure.depth,
-                  atom.structure.distance,
-                  atom.structure.distanceIndex,
-                  atom.structure.shell,
-                  atom.structure.totalInOuter,
-                  atom.structure.emptyInOuter,
-                  atom.structure.filledInOuter,
-                  atom.structure.ancestors,
-                ],
-                [
-                  atom.nucleus.protons,
-                  atom.nucleus.neutrons,
-                  atom.nucleus.nucleons,
-                  atom.nucleus.stability,
-                  atom.nucleus.decayType,
-                ],
-              ]),
-              moleculeWithUri.molecule.electricalConductivity,
-              moleculeWithUri.molecule.thermalConductivity,
-              moleculeWithUri.molecule.toughness,
-              moleculeWithUri.molecule.hardness,
-              moleculeWithUri.molecule.ductility,
+              molecule.molecule.receivingAtoms,
+              molecule.molecule.electricalConductivity,
+              molecule.molecule.thermalConductivity,
+              molecule.molecule.toughness,
+              molecule.molecule.hardness,
+              molecule.molecule.ductility,
             ],
-            moleculeWithUri.tokenUri,
+            molecule.tokenUri,
           ]),
           reaction.inputAtomIds,
           reaction.remainingEnergy,
@@ -260,12 +265,10 @@ task("otom:analyze", "Analyze OTOM reaction")
       ];
     };
 
-    console.log(convertInputToOutput(analysisData));
-
     // Send transaction
     const tx = await contract.analyseReactions(
-      convertInputToOutput(analysisData)
+      ...convertInputToOutput(analysisData)
     );
-    console.log("Transaction hash:", tx.hash);
+    console.log("Analysis transaction hash:", tx.hash);
     await tx.wait();
   });
