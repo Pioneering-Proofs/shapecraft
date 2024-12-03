@@ -5,7 +5,7 @@ export const productionNetworks = [
     blockExplorerUrls: ["https://shapescan.xyz/"],
     chainId: 360,
     chainName: "Shape Network",
-    iconUrls: ["https://app.dynamic.xyz/assets/networks/eth.svg"],
+    iconUrls: ["https://shapescan.xyz/assets/configs/network_icon_dark.svg"],
     name: "Ethereum",
     nativeCurrency: {
       decimals: 18,
@@ -27,7 +27,7 @@ export const testnetNetworks = [
     blockExplorerUrls: ["https://explorer-sepolia.shape.network"],
     chainId: 11011,
     chainName: "Shape Sepolia",
-    iconUrls: ["https://app.dynamic.xyz/assets/networks/eth.svg"],
+    iconUrls: ["https://shapescan.xyz/assets/configs/network_icon_dark.svg"],
     name: "Ethereum",
     nativeCurrency: {
       decimals: 18,

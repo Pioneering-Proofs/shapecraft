@@ -5,7 +5,7 @@ import { isEthereumWallet } from '@dynamic-labs/ethereum'
 
 import './Methods.css';
 
-export default function DynamicMethods({ isDarkMode }) {
+export default function DynamicMethods({ isDarkMode }: { isDarkMode: boolean }) {
   const isLoggedIn = useIsLoggedIn();
   const { sdkHasLoaded, primaryWallet, user } = useDynamicContext();
   const userWallets = useUserWallets();
@@ -13,7 +13,7 @@ export default function DynamicMethods({ isDarkMode }) {
   const [result, setResult] = useState('');
 
   
-  const safeStringify = (obj) => {
+  const safeStringify = (obj: any) => {
     const seen = new WeakSet();
     return JSON.stringify(obj, (key, value) => {
       if (typeof value === 'object' && value !== null) {

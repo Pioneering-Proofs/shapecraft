@@ -33,7 +33,6 @@ export default function Providers({
         },
       }}
     >
-
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
           <DynamicWagmiConnector>
