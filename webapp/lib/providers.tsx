@@ -6,6 +6,7 @@ import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { DynamicWagmiConnector } from "@dynamic-labs/wagmi-connector";
 import { config } from "@/lib/wagmi";
+import { productionNetworks } from "@/lib/networks";
 
 
 export default function Providers({
@@ -17,6 +18,9 @@ export default function Providers({
   const queryClient = new QueryClient();
 
   const environmentId = process.env.NEXT_PUBLIC_DYNAMIC_ENV;
+  if (!environmentId) {
+    throw new Error("Missing NEXT_PUBLIC_DYNAMIC_ENV");
+  }
 
   return (
     <DynamicContextProvider
@@ -24,6 +28,9 @@ export default function Providers({
       settings={{
         environmentId,
         walletConnectors: [EthereumWalletConnectors],
+        overrides: {
+          evmNetworks: productionNetworks,
+        },
       }}
     >
 
@@ -34,7 +41,6 @@ export default function Providers({
           </DynamicWagmiConnector>
         </QueryClientProvider>
       </WagmiProvider>
-
     </DynamicContextProvider>
   );
 }
