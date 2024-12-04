@@ -32,7 +32,7 @@ export default function Account() {
           <button className="get-started" onClick={() => window.open('https://app.dynamic.xyz', '_blank', 'noopener,noreferrer')}>Get started</button>
         </div>
       </div>
-      <div className="modal">
+      <div>
         <DynamicWidget />
         <DynamicMethods isDarkMode={isDarkMode} />
       </div>
