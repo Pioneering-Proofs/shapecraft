@@ -1,3 +1,6 @@
+'use client'
+
+import OTOM from "@/app/components/Otom";
 
 export default async function TokenPage({
   params
@@ -5,8 +8,11 @@ export default async function TokenPage({
   params: Promise<{ tokenId: string }>
 }) {
   const { tokenId } = await params;
-  
+
   return (
-    <p>Token: {tokenId}</p>
+    <>
+      <h1>Token: {tokenId}</h1>
+      <OTOM tokenId={tokenId} />
+    </>
   );
 }

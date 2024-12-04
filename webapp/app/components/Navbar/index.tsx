@@ -1,5 +1,6 @@
 
 export default function NavBar() {
+    // TODO: Implement the navigation bar
     return (
         <nav>
             <ul>

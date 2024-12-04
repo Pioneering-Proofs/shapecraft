@@ -1,5 +1,10 @@
 import { type Chain } from "viem";
 
+export enum Network {
+  Shape = 360,
+  Sepolia = 11011,
+}
+
 export const productionNetworks = [
   {
     blockExplorerUrls: ["https://shapescan.xyz/"],
