@@ -284,3 +284,13 @@ task("otom:fetch", "Fetch OTOM metadata")
     const otom = parseTokenURI(uri);
     console.log(otom);
   });
+
+task("otom:id", "Compute token ID from name")
+  .addPositionalParam("name", "The name of the token")
+  .setAction(async ({ name }, { ethers }) => {
+    const encoded = ethers.AbiCoder.defaultAbiCoder().encode(["string"], [name])
+    const hashedTokenName = ethers.keccak256(encoded);
+    const tokenId = BigInt(hashedTokenName);
+    console.log(tokenId);
+    return tokenId;
+  });

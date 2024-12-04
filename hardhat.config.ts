@@ -82,6 +82,9 @@ const config: HardhatUserConfig = {
     },
     otomReactionOutput: {
       shape: "0x7d5A370F277e1847E4f768a88758237c6E3456eD"
+    },
+    multicall3: {
+      shape: "0xcA11bde05977b3631167028862bE2a173976CA11"
     }
   },
   paths: {
