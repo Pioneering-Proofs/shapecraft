@@ -2,7 +2,7 @@
 
 import { OtomTokenType, OtomToken } from '@/lib/encoding';
 import Image from 'next/image';
-// import OtomSketch from './OtomSketch';
+import OtomSketch from './OtomSketch';
 
 export default function OTOM({ tokenId, otom }: { tokenId: string, otom: OtomToken }) {
 
@@ -16,7 +16,7 @@ export default function OTOM({ tokenId, otom }: { tokenId: string, otom: OtomTok
                     <p>Series: {otom.series}</p>
                     <p>Protons: {otom.protons}</p>
                     <p>Neutrons: {otom.neutrons}</p>
-                    {/* <OtomSketch /> */}
+                    <OtomSketch />
                 </div>
             )}
         </div>

@@ -631,7 +631,7 @@
     pirates "^4.0.6"
     source-map-support "^0.5.16"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.13", "@babel/runtime@^7.15.4", "@babel/runtime@^7.17.9", "@babel/runtime@^7.21.0", "@babel/runtime@^7.22.5", "@babel/runtime@^7.25.0", "@babel/runtime@^7.26.0":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.17.9", "@babel/runtime@^7.21.0", "@babel/runtime@^7.22.5", "@babel/runtime@^7.25.0", "@babel/runtime@^7.26.0":
   version "7.26.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.26.0.tgz#8600c2f595f277c60815256418b85356a65173c1"
   integrity sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==
@@ -1797,19 +1797,6 @@
   version "1.0.39"
   resolved "https://registry.yarnpkg.com/@nolyfill/is-core-module/-/is-core-module-1.0.39.tgz#3dc35ba0f1e66b403c00b39344f870298ebb1c8e"
   integrity sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==
-
-"@p5-wrapper/next@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@p5-wrapper/next/-/next-1.0.3.tgz#c32f3454faa69bbe35734aa2a19235f6e3c3f8d4"
-  integrity sha512-7Ty2LDEye53xMFSi1hhf67KgnUt7g+KCR+cP6Vi0lJumvyN5buVwhDkuNk8NX03THkwghKN4LaV0NeHgh8qQjQ==
-
-"@p5-wrapper/react@^4.4.2":
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/@p5-wrapper/react/-/react-4.4.2.tgz#d25a44b45bc836d8bb63fc8925fed36714d2a3d8"
-  integrity sha512-jRUy0OAP54gYl84mhJPDoPc7DutQ1Gi2dq2AnFpswQwye+Rb0EVTc7JeAwcgYCs4+ZyDsKeN9GqpYE3RR3jMZQ==
-  dependencies:
-    microdiff "^1.4.0"
-    p5 "^1.9.4"
 
 "@parcel/watcher-android-arm64@2.5.0":
   version "2.5.0"
@@ -7100,7 +7087,7 @@ p-try@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
-p5@^1.11.2, p5@^1.9.4:
+p5@^1.11.2:
   version "1.11.2"
   resolved "https://registry.yarnpkg.com/p5/-/p5-1.11.2.tgz#3e3fc70fd20fc9e12135089b7f0f13e21acbf2df"
   integrity sha512-kvtMTmxJexkbfuaVThg/1JE6iQyS8tTAqGE1UGbfApKUIzDc5hHM23hc08FV3jG0jlNS2En9kqZDb4FrJ8x+kg==
@@ -7499,12 +7486,19 @@ react-devtools-core@^5.0.0:
     shell-quote "^1.6.1"
     ws "^7"
 
-react-dom@19.0.0-rc-66855b96-20241106:
-  version "19.0.0-rc-66855b96-20241106"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.0.0-rc-66855b96-20241106.tgz#beba73decfd1b9365a3c83673a298623b15acb0b"
-  integrity sha512-D25vdaytZ1wFIRiwNU98NPQ/upS2P8Co4/oNoa02PzHbh8deWdepjm5qwZM/46OdSiGv4WSWwxP55RO9obqJEQ==
+react-dom@19.0.0-rc.0:
+  version "19.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.0.0-rc.0.tgz#6ef81d293f3a3b366bb9cfa0d927a971479c1b3a"
+  integrity sha512-MhgN2RMYFUkZekkFbsXg9ycwEGaMBzATpTNvGGvWNA9BZZEkdzIL4pv7iDuZKn48YoGARk8ydu4S+Ehd8Yrc4g==
   dependencies:
-    scheduler "0.25.0-rc-66855b96-20241106"
+    scheduler "0.25.0-rc.0"
+
+react-error-boundary@^4.0.13:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-4.1.2.tgz#bc750ad962edb8b135d6ae922c046051eb58f289"
+  integrity sha512-GQDxZ5Jd+Aq/qUxbCm1UtzmL/s++V7zKgE8yMktJiCQXCCFZnMZh9ng+6/Ne6PjNSXH0L9CjeOEREfRnq6Duag==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 react-fast-compare@^2.0.1:
   version "2.0.4"
@@ -7621,10 +7615,10 @@ react-shallow-renderer@^16.15.0:
     object-assign "^4.1.1"
     react-is "^16.12.0 || ^17.0.0 || ^18.0.0"
 
-react@19.0.0-rc-66855b96-20241106:
-  version "19.0.0-rc-66855b96-20241106"
-  resolved "https://registry.yarnpkg.com/react/-/react-19.0.0-rc-66855b96-20241106.tgz#f04d7283454a32bdd8e9757db4308b75b9739e56"
-  integrity sha512-klH7xkT71SxRCx4hb1hly5FJB21Hz0ACyxbXYAECEqssUjtJeFUAaI2U1DgJAzkGEnvEm3DkxuBchMC/9K4ipg==
+react@19.0.0-rc.0:
+  version "19.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-19.0.0-rc.0.tgz#9f1e9965c30948b472adcf5ba5184413375e4a40"
+  integrity sha512-8nrDCl5uE54FHeKqKrEO0TS+10bT4cxutJGb2okiJc0FHMQ6I3FeItaqly/1nbijlhSO3HmAVyPIexIQQWYAtQ==
 
 read-cache@^1.0.0:
   version "1.0.0"
@@ -7880,10 +7874,10 @@ scheduler@0.24.0-canary-efb381bbf-20230505:
   dependencies:
     loose-envify "^1.1.0"
 
-scheduler@0.25.0-rc-66855b96-20241106:
-  version "0.25.0-rc-66855b96-20241106"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.25.0-rc-66855b96-20241106.tgz#8bbb728eca4de5a5deca1f18370fbce41aee91d1"
-  integrity sha512-HQXp/Mnp/MMRSXMQF7urNFla+gmtXW/Gr1KliuR0iboTit4KvZRY8KYaq5ccCTAOJiUqQh2rE2F3wgUekmgdlA==
+scheduler@0.25.0-rc.0:
+  version "0.25.0-rc.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.25.0-rc.0.tgz#52ca287c10710479feb395665b4b8a4a8db003bf"
+  integrity sha512-B3aSqMfoRkucM94MztZD1CyNyf68W9A3dL/TT453G6uNcxMBqGQ+rhFKyxNnWH/mfRHlGBr0tF0F472JCETH4g==
 
 selfsigned@^2.4.1:
   version "2.4.1"

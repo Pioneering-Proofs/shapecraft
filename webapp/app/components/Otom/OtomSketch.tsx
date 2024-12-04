@@ -1,8 +1,8 @@
 'use client'
 
-import React from "react";
-import { type Sketch } from "@p5-wrapper/react";
-import { NextReactP5Wrapper } from "@p5-wrapper/next";
+import React, { useCallback, useMemo, useState } from "react";
+import { type Sketch } from "@/app/components/P5Wrapper/contracts/Sketch";
+import { NextReactP5Wrapper } from "@/app/components/P5Wrapper";
 
 const sketch: Sketch = (p5) => {
     p5.setup = () => p5.createCanvas(600, 400, p5.WEBGL);
@@ -20,5 +20,9 @@ const sketch: Sketch = (p5) => {
 };
 
 export default function OtomSketch() {
-    return <NextReactP5Wrapper sketch={sketch} />;
+    return (
+        <div className="w-screen h-full">
+            <NextReactP5Wrapper sketch={sketch} />
+        </div>
+    );
 }
