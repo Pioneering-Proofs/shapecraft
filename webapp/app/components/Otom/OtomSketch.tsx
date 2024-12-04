@@ -136,7 +136,7 @@ const sketch: Sketch<OtomSketchProps> = (p5) => {
 
 export default function OtomSketch({ otom }: { otom: OtomToken }) {
     return (
-        <div className="w-screen h-full">
+        <div className="w-full h-full bg-slate-900 rounded-xl">
             <NextReactP5Wrapper
                 sketch={sketch}
                 protons={otom.protons}

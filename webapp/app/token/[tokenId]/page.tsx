@@ -20,8 +20,6 @@ export default async function TokenPage({
 
   return (
     <div className="m-3">
-      <h1 className="text-xl pt-5">Token: {tokenId}</h1>
-      <br />
       {(parsedURI && parsedURI.type === OtomTokenType.Otom) && <OTOM tokenId={tokenId} otom={parsedURI} />}
     </div>
   );

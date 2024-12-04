@@ -1,24 +1,17 @@
 'use client'
 
 import { OtomTokenType, OtomToken } from '@/lib/encoding';
-import Image from 'next/image';
-import OtomSketch from './OtomSketch';
+// import OtomSketch from './OtomSketch';
+import OtomOverview from './OtomOverview';
 
 export default function OTOM({ tokenId, otom }: { tokenId: string, otom: OtomToken }) {
 
     return (
-        <div>
-            <h2>{otom.name}</h2>
-            <Image src={otom.image} alt={otom.name} width={200} height={200} />
-
+        <div className='w-screen h-full'>
             {otom.type === OtomTokenType.Otom && (
                 <div>
-                    <p>Series: {otom.series}</p>
-                    <p>Protons: {otom.protons}</p>
-                    <p>Neutrons: {otom.neutrons}</p>
-                    <p>Filled Valence: {otom.filledValence.join('-')}</p>
-                    <p>Empty Valence: {otom.emptyValence.join('-')}</p>
-                    <OtomSketch otom={otom} />
+                    <OtomOverview otom={otom} tokenId={tokenId} />
+                    {/* <OtomSketch otom={otom} /> */}
                 </div>
             )}
         </div>

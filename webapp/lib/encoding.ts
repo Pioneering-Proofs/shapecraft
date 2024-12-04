@@ -3,6 +3,7 @@ export interface OtomToken {
     type: OtomTokenType.Otom;
     name: string;
     image: string;
+    chipImage: string;
     series: string;
     protons: number;
     neutrons: number;
@@ -21,6 +22,7 @@ export interface OtomMolecule {
     type: OtomTokenType.Molecule;
     name: string;
     image: string;
+    chipImage: string;
     activationEnergy: number;
     radius: number;
     mass: number;
@@ -51,74 +53,32 @@ export const parseTokenURI = (uri: string): OtomToken | OtomMolecule | null => {
     const lastChunk = split[split.length - 1];
     const data = atob(lastChunk);
     const parsedData = JSON.parse(data);
-    console.log('parsedData :>>', parsedData);
+    // console.log('parsedData :>>', parsedData);
     if (parsedData.name.endsWith('Otom')) {
-        console.log('Parsing as OTOM');
-        const name = parsedData.name;
-        const image = parsedData.image;
-        const series = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Series').value;
-        console.log('series :>>', series);
-        const protons = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Protons').value;
-        console.log('protons :>>', protons);
-        const neutrons = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Neutrons').value;
-        console.log('neutrons :>>', neutrons);
-        const mass = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Mass').value;
-        console.log('mass :>>', mass);
-        const metallic = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Metallic').value;
-        console.log('metallic :>>', metallic);
-        const stability = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Stability').value;
-        console.log('stability :>>', stability);
-        const density = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Density').value;
-        console.log('density :>>', density);
-        const radius = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Radius').value;
-        console.log('radius :>>', radius);
-        const electronegativity = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Electronegativity').value;
-        console.log('electronegativity :>>', electronegativity);
-        const decayType = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Decay Type').value;
-        console.log('decayType :>>', decayType);
-        const filledValence = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Filled Valence').value.split('-').map((val: string) => parseInt(val));
-        console.log('filledValence :>>', filledValence);
-        const emptyValence = parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Empty Valence').value.split('-').map((val: string) => parseInt(val));
-        console.log('emptyValence :>>', emptyValence);
         return {
             type: OtomTokenType.Otom,
-            name,
-            image,
-            series,
-            protons,
-            neutrons,
-            mass,
-            metallic,
-            stability,
-            density,
-            radius,
-            electronegativity,
-            decayType,
-            filledValence,
-            emptyValence
-        } as OtomToken;
-
-        // return {
-        //     name: parsedData.name,
-        //     image: parsedData.image,
-        //     series: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Series').value,
-        //     protons: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Protons').value,
-        //     neutrons: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Neutrons').value,
-        //     mass: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Mass').value,
-        //     metallic: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Metallic').value,
-        //     stability: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Stability').value,
-        //     density: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Density').value,
-        //     radius: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Radius').value,
-        //     electronegativity: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Electronegativity').value,
-        //     decayType: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Decay Type').value,
-        //     filledValence: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Filled Valence').value.split('-').map((val: string) => parseInt(val)),
-        //     emptyValence: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Empty Valence').value.split('-').map((val: string) => parseInt(val))
-        // } as OtomToken;
-    } else if (parsedData.name.endsWith('Molecule')) {
-        console.log('Parsing as Molecule');
-        return {
             name: parsedData.name,
             image: parsedData.image,
+            chipImage: parsedData.chipImage,
+            series: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Series').value,
+            protons: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Protons').value,
+            neutrons: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Neutrons').value,
+            mass: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Mass').value,
+            metallic: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Metallic').value,
+            stability: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Stability').value,
+            density: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Density').value,
+            radius: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Radius').value,
+            electronegativity: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Electronegativity').value,
+            decayType: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Decay Type').value,
+            filledValence: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Filled Valence').value.split('-').map((val: string) => parseInt(val)),
+            emptyValence: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Empty Valence').value.split('-').map((val: string) => parseInt(val))
+        } as OtomToken;
+    } else if (parsedData.name.endsWith('Molecule')) {
+        return {
+            type: OtomTokenType.Molecule,
+            name: parsedData.name,
+            image: parsedData.image,
+            chipImage: parsedData.chipImage,
             activationEnergy: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Activation Energy').value,
             radius: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Radius').value,
             mass: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Mass').value,
