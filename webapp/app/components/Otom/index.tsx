@@ -16,7 +16,9 @@ export default function OTOM({ tokenId, otom }: { tokenId: string, otom: OtomTok
                     <p>Series: {otom.series}</p>
                     <p>Protons: {otom.protons}</p>
                     <p>Neutrons: {otom.neutrons}</p>
-                    <OtomSketch />
+                    <p>Filled Valence: {otom.filledValence.join('-')}</p>
+                    <p>Empty Valence: {otom.emptyValence.join('-')}</p>
+                    <OtomSketch otom={otom} />
                 </div>
             )}
         </div>
