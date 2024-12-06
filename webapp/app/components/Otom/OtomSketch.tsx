@@ -7,14 +7,7 @@ import { NextReactP5Wrapper } from "@/app/components/P5Wrapper";
 import { OtomToken } from "@/lib/encoding";
 
 type OtomSketchProps = SketchProps & {
-    protons: number;
-    neutrons: number;
-    mass: number;
-    radius: number;
-    density: number;
-    electronegativity: number;
-    filledValence: number[];
-    emptyValence: number[];
+    otom: OtomToken;
 };
 
 
@@ -38,26 +31,15 @@ const sketch: Sketch<OtomSketchProps> = (p5) => {
     };
 
     p5.updateWithProps = (props) => {
-        if (props.protons !== undefined) {
-            protons = props.protons;
-        }
-        if (props.neutrons !== undefined) {
-            neutrons = props.neutrons;
-        }
-        if (props.mass !== undefined) {
-            mass = props.mass;
-        }
-        if (props.radius !== undefined) {
-            radius = props.radius;
-        }
-        if (props.density !== undefined) {
-            density = props.density;
-        }
-        if (props.electronegativity !== undefined) {
-            electronegativity = props.electronegativity;
-        }
-        if (props.filledValence !== undefined) {
-            filledValence = props.filledValence;
+        if (props.otom) {
+            protons = props.otom.protons;
+            neutrons = props.otom.neutrons;
+            mass = props.otom.mass;
+            radius = props.otom.radius;
+            density = props.otom.density;
+            electronegativity = props.otom.electronegativity;
+            filledValence = props.otom.filledValence;
+            emptyValence = props.otom.emptyValence;
 
             // Create electrons based on filledValence
             electrons = [];
@@ -72,9 +54,6 @@ const sketch: Sketch<OtomSketchProps> = (p5) => {
                     });
                 }
             }
-        }
-        if (props.emptyValence !== undefined) {
-            emptyValence = props.emptyValence;
         }
     };
 
@@ -91,12 +70,12 @@ const sketch: Sketch<OtomSketchProps> = (p5) => {
     const drawOrbitals = () => {
         p5.noFill();
         p5.stroke(0, 0, 255); // Blue color for orbitals
-    
+
         const maxShells = Math.max(filledValence.length, emptyValence.length);
-    
+
         for (let i = 0; i < maxShells; i++) {
             const orbitalRadius = (i + 1) * 50; // Adjust scaling as needed
-    
+
             p5.push();
             // Remove the rotation since ellipses are in XY plane by default
             p5.ellipse(0, 0, orbitalRadius * 2, orbitalRadius * 2);
@@ -139,14 +118,7 @@ export default function OtomSketch({ otom }: { otom: OtomToken }) {
         <div className="w-full h-full bg-slate-900 rounded-xl">
             <NextReactP5Wrapper
                 sketch={sketch}
-                protons={otom.protons}
-                neutrons={otom.neutrons}
-                mass={otom.mass}
-                radius={otom.radius}
-                density={otom.density}
-                electronegativity={otom.electronegativity}
-                filledValence={otom.filledValence}
-                emptyValence={otom.emptyValence}
+                otom={otom}
             />
         </div>
     );

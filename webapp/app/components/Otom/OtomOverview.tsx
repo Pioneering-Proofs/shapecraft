@@ -1,26 +1,9 @@
 import Image from 'next/image'
 import { OtomToken } from "@/lib/encoding";
-import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/card"
+import { Card, CardContent, CardHeader, CardTitle, PropertyCard } from "@/app/components/card"
 import { Atom, Droplets, Scale, Ruler, Zap, RadiationIcon as RadioactiveFilled, Hexagon } from 'lucide-react'
 import OtomSketch from './OtomSketch';
 
-interface OtomPropertyProps {
-  icon: React.ReactNode;
-  label: string;
-  value: string | number;
-}
-
-const OtomProperty: React.FC<OtomPropertyProps> = ({ icon, label, value }) => (
-  <Card>
-    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-      <CardTitle className="text-sm font-medium">{label}</CardTitle>
-      {icon}
-    </CardHeader>
-    <CardContent>
-      <div className="text-2xl font-bold">{value}</div>
-    </CardContent>
-  </Card>
-)
 
 const ValenceElectrons: React.FC<{ filled: number[]; empty: number[] }> = ({ filled, empty }) => (
     <div className="flex flex-col items-center space-y-2">
@@ -60,12 +43,12 @@ export default function OtomOverview({ otom, tokenId }: { otom: OtomToken, token
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-        <OtomProperty icon={<Atom className="h-4 w-4 text-muted-foreground" />} label="Protons" value={otom.protons} />
-        <OtomProperty icon={<Atom className="h-4 w-4 text-muted-foreground" />} label="Neutrons" value={otom.neutrons} />
-        <OtomProperty icon={<Scale className="h-4 w-4 text-muted-foreground" />} label="Mass" value={`${otom.mass} u`} />
-        <OtomProperty icon={<Droplets className="h-4 w-4 text-muted-foreground" />} label="Density" value={`${otom.density} g/cm³`} />
-        <OtomProperty icon={<Ruler className="h-4 w-4 text-muted-foreground" />} label="Radius" value={`${otom.radius} pm`} />
-        <OtomProperty icon={<Zap className="h-4 w-4 text-muted-foreground" />} label="Electronegativity" value={otom.electronegativity} />
+        <PropertyCard icon={<Atom className="h-4 w-4 text-muted-foreground" />} label="Protons" value={otom.protons} />
+        <PropertyCard icon={<Atom className="h-4 w-4 text-muted-foreground" />} label="Neutrons" value={otom.neutrons} />
+        <PropertyCard icon={<Scale className="h-4 w-4 text-muted-foreground" />} label="Mass" value={`${otom.mass} u`} />
+        <PropertyCard icon={<Droplets className="h-4 w-4 text-muted-foreground" />} label="Density" value={`${otom.density} g/cm³`} />
+        <PropertyCard icon={<Ruler className="h-4 w-4 text-muted-foreground" />} label="Radius" value={`${otom.radius} pm`} />
+        <PropertyCard icon={<Zap className="h-4 w-4 text-muted-foreground" />} label="Electronegativity" value={otom.electronegativity} />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">

@@ -1,0 +1,2 @@
+
+export const AlphaUniverseHash = '0xfda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26';

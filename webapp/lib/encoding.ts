@@ -1,3 +1,5 @@
+import { ethers } from "ethers";
+import { AlphaUniverseHash } from "./constants";
 
 export interface OtomToken {
     type: OtomTokenType.Otom;
@@ -51,9 +53,19 @@ export const parseTokenURI = (uri: string): OtomToken | OtomMolecule | null => {
   try {
     const split = uri.split(",");
     const lastChunk = split[split.length - 1];
-    const data = atob(lastChunk);
+
+    // Convert Base64 to a byte array
+    const binaryString = atob(lastChunk);
+    const len = binaryString.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+    }
+    // Decode the byte array into a UTF-8 string
+    const decoder = new TextDecoder();
+    const data = decoder.decode(bytes);
     const parsedData = JSON.parse(data);
-    // console.log('parsedData :>>', parsedData);
+
     if (parsedData.name.endsWith('Otom')) {
         return {
             type: OtomTokenType.Otom,
@@ -84,8 +96,8 @@ export const parseTokenURI = (uri: string): OtomToken | OtomMolecule | null => {
             mass: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Mass').value,
             bondType: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Bond Type').value,
             bondStrength: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Bond Strength').value,
-            givingAtoms: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Giving Atoms').value,
-            receivingAtoms: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Receiving Atoms').value,
+            givingAtoms: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Giving Atoms').value.split(', '),
+            receivingAtoms: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Receiving Atoms').value.split(', '),
             electricalConductivity: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Electrical Conductivity').value,
             thermalConductivity: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Thermal Conductivity').value,
             toughness: parsedData.attributes.find((attr: TokenAttribute) => attr.trait_type === 'Toughness').value,
@@ -100,5 +112,13 @@ export const parseTokenURI = (uri: string): OtomToken | OtomMolecule | null => {
     return null;
   }
 };
+
+export function encodeTokenId({ name, mass }: {name: string, mass: number}, universeHash = AlphaUniverseHash): string {
+    const encodedName = universeHash.slice(2) + name + mass + "-";
+    const encoded = ethers.AbiCoder.defaultAbiCoder().encode(["string"], [encodedName]);
+    const hashedTokenName = ethers.keccak256(encoded);
+    const tokenId = BigInt(hashedTokenName);
+    return tokenId.toString();
+}
 
 // {"name":"At Otom","image":"https://prod-otoms.s3.us-east-1.amazonaws.com/otoms/fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26At65--token.png","chipImage":"https://prod-otoms.s3.us-east-1.amazonaws.com/otoms/fda008503288e5abc370328150d20993fec26efe5707f2d12ab552ebb0da5e26At65--chip.png","attributes":[{"trait_type":"Name","value":"At"},{"trait_type":"Series","value":"metal"},{"trait_type":"Protons","value":31},{"trait_type":"Neutrons","value":34},{"trait_type":"Mass","value":65},{"trait_type":"Stability","value":0.9004945367466788},{"trait_type":"Density","value":18.846429493189405},{"trait_type":"Radius","value":1.5108734544550986},{"trait_type":"Electronegativity","value":0.046511627906976744},{"trait_type":"Metallic","value":true},{"trait_type":"Decay Type","value":"alpha"},{"trait_type":"Filled Valence","value":"0-0-0-0-0-1-0-1"},{"trait_type":"Empty Valence","value":"0-0-0-0-0-1-3-2"}]}

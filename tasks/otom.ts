@@ -1,5 +1,6 @@
 import { task } from "hardhat/config";
 import { parseTokenURI } from "@/utils";
+import { AlphaUniverseHash } from "@/utils";
 
 task("otom:mint", "Mint OTOM NFTs")
   .addOptionalParam("amount", "The amount of NFTs to mint", "5")
@@ -20,6 +21,14 @@ task("otom:mint", "Mint OTOM NFTs")
       method: "POST",
     });
     const miningData = JSON.parse(await miningResponse.json());
+    console.log("Mining data :>>", JSON.stringify(miningData));
+
+    // const { encodeMolecule, encodeAtom } = await import("@/utils/otomParsing");
+    // const encodedAtoms = miningData.json.args.map((arg) => {
+    //   return encodeMolecule(arg.minedMolecule);
+    // });
+    // console.log("Encoded atoms :>>", encodedAtoms);
+
     const abi = [
       "function mine(((string,string,bytes32,uint256,uint256,(uint256,string),(uint256,uint256,uint256,uint256,uint256,bool,string,string,uint256,uint256,(bytes32,uint256,uint256,uint256,uint256,uint256[],uint256[],uint256[],uint256[]),(uint256,uint256,uint256,uint256,string))[],(uint256,uint256,uint256,uint256,uint256,bool,string,string,uint256,uint256,(bytes32,uint256,uint256,uint256,uint256,uint256[],uint256[],uint256[],uint256[]),(uint256,uint256,uint256,uint256,string))[],uint256,uint256,uint256,uint256,uint256),bytes32,string,bytes32,uint256,bytes)[] _payloads)",
       "event OtomMined(address indexed minedBy, bytes32 indexed universeHash, uint256 indexed atomId, bytes32 creationHash)",
@@ -283,14 +292,17 @@ task("otom:fetch", "Fetch OTOM metadata")
     const uri = await contract.tokenURI(id);
     const otom = parseTokenURI(uri);
     console.log(otom);
+    return otom;
   });
 
 task("otom:id", "Compute token ID from name")
   .addPositionalParam("name", "The name of the token")
-  .setAction(async ({ name }, { ethers }) => {
-    const encoded = ethers.AbiCoder.defaultAbiCoder().encode(["string"], [name])
+  .addPositionalParam("mass", "Charge of the otom")
+  .setAction(async ({ name, mass }, { ethers }) => {
+    const encodedName = AlphaUniverseHash.slice(2) + name + mass + "-";
+    const encoded = ethers.AbiCoder.defaultAbiCoder().encode(["string"], [encodedName]);
     const hashedTokenName = ethers.keccak256(encoded);
     const tokenId = BigInt(hashedTokenName);
-    console.log(tokenId);
+    console.log(tokenId.toString());
     return tokenId;
   });
